@@ -40,7 +40,7 @@ runs:
     - name: credential path
       shell: bash
       run: |
-        if [ "${{inputs.credentialPath}}" -eq "default" ]; then
+        if [ "${{inputs.credentialPath}}" = "default" ]; then
           echo "GOOGLE_APPLICATION_CREDENTIALS=${{runner.temp}}/googleApplocationCredentials.json" >> $GITHUB_ENV
         else
           echo "GOOGLE_APPLICATION_CREDENTIALS=${{inputs.credentialPath}}" >> $GITHUB_ENV
