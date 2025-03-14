@@ -33,7 +33,7 @@ jobs:
 
       # Install Firebase Tools with credentials
       - name: Install Firebase Tools
-        uses: DonPok/github-actions-firebase-tools
+        uses: DonPok/github-actions-firebase-tools@v1
         with:
           googleApplicationCredentialsContents: ${{secrets.CREDENTIAL}}  
       
@@ -81,7 +81,7 @@ Define where to save the credentials. The default is:
 ```yaml
       # Install Firebase Tools with credentials
       - name: Install Firebase Tools
-        uses: DonPok/github-actions-firebase-tools
+        uses: DonPok/github-actions-firebase-tools@v1
         with:
           googleApplicationCredentialsContents: ${{secrets.CREDENTIAL}}
           encode: base64
@@ -92,7 +92,7 @@ Define where to save the credentials. The default is:
 ```yaml
       # Install Firebase Tools with credentials
       - name: Install Firebase Tools
-        uses: DonPok/github-actions-firebase-tools
+        uses: DonPok/github-actions-firebase-tools@v1
         with:
           googleApplicationCredentialsContents: ${{secrets.CREDENTIAL}}
           firebaseToolVersion: 13.33.0
@@ -104,7 +104,7 @@ change to working directory.
 ```yaml
       # Install Firebase Tools with credentials
       - name: Install Firebase Tools
-        uses: DonPok/github-actions-firebase-tools
+        uses: DonPok/github-actions-firebase-tools@v1
         with:
           googleApplicationCredentialsContents: ${{secrets.CREDENTIAL}}
           credentialPath: ${{ github.workspace }}/.credential.json
