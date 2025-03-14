@@ -23,7 +23,7 @@ inputs:
       default value is `utf8`.
   credentialPath:
     required: false
-    default: ${{runner.temp}}/googleApplocationCredentials.json
+    default: default
     description: |
       default credential path is `${{runner.temp}}/googleApplocationCredentials.json`
       if you want to override, plz set.
@@ -35,16 +35,22 @@ runs:
       run: |
         curl -sL https://firebase.tools | bash
 
+    - name: credential path
+      shell: bash
+      run: |
+        if [ "${{inputs.credentialPath}}" -eq "default" ]; then
+          echo "GOOGLE_APPLICATION_CREDENTIALS=${{runner.temp}}/googleApplocationCredentials.json" >> $GITHUB_ENV
+        else
+          echo "GOOGLE_APPLICATION_CREDENTIALS=${{inputs.credentialPath}}" >> $GITHUB_ENV
+        fi
+        
+
     - name: save GOOGLE_APPLICATION_CREDENTIALS file
       uses: joutvhu/write-file@v1
       with:
-        path: ${{ inputs.credentialPath }}
+        path: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
         contents: ${{ inputs.googleApplicationCredentialsContents }}
         write_mode: overwrite
         encoding: ${{ inputs.encode }}
 
-    - name: set keys
-      shell: bash
-      run: |
-        echo "GOOGLE_APPLICATION_CREDENTIALS=${{inputs.credentialPath}}" >> $GITHUB_ENV
         
