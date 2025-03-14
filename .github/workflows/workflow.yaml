@@ -43,6 +43,6 @@ jobs:
         with:
           title: setup firebase tools with credentials file
           workdir: dist
-          tag: "v1"
+          tag: "v2"
 
 
