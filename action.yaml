@@ -25,7 +25,7 @@ inputs:
     required: false
     default: default
     description: |
-      default credential path is `${{runner.temp}}/googleApplocationCredentials.json`
+      default credential path is `\$\{\{runner.temp\}\}/googleApplocationCredentials.json`
       if you want to override, plz set.
 runs:
   using: composite
