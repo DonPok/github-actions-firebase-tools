@@ -7,7 +7,7 @@ on:
     paths:
       - action.yaml
 jobs:
-  test:
+  release:
     runs-on: ubuntu-latest
     steps:
 
@@ -25,7 +25,14 @@ jobs:
           googleApplicationCredentialsContents: ${{secrets.CREDENTIAL}}
 
       - name: check installed
-        run:
+        run: |
           hide=$(firebase projects:list)
+
+      - name: Create a Release
+        uses: elgohr/Github-Release-Action@v5
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          title: setup-firebase-tools
 
 
