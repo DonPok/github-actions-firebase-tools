@@ -43,5 +43,6 @@ jobs:
         with:
           title: setup-firebase-tools
           workdir: dist
+          tag: "v1"
 
 
