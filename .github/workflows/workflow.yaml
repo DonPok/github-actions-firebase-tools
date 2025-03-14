@@ -19,12 +19,12 @@ jobs:
         with:
           node-version: '20'
 
-      - name: use
+      - name: test action
         uses: ./
         with:
           googleApplicationCredentialsContents: ${{secrets.CREDENTIAL}}
 
-      - name: test
+      - name: check installed
         run:
           firebase projects:list
 
