@@ -41,7 +41,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          title: setup-firebase-tools
+          title: setup firebase tools with credentials file
           workdir: dist
           tag: "v1"
 
