@@ -1,0 +1,30 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    paths:
+      - action.yaml
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Clone repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: use
+        uses: ./
+        with:
+          googleApplicationCredentialsContents: ${{secrets.CREDENTIAL}}
+
+      - name: test
+        run:
+          firebase projects:list
+
