@@ -26,5 +26,5 @@ jobs:
 
       - name: check installed
         run:
-          firebase projects:list
+          ::add-mask::firebase projects:list
 
