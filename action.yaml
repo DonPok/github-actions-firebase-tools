@@ -1,12 +1,10 @@
-name: setup-firebase-tools
+name: setup firebase tools with credentials file
 branding:
   icon: 'package'
   color: 'gray-dark'
 description:
   Install firebase tools
   This action is required node.
-  If you want to install node, please use actions/setup-node@v4.
-  Also this action is supported node that installed by other way.
 inputs:
   googleApplicationCredentialsContents:
     required: true
